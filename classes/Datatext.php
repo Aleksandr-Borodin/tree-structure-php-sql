@@ -22,7 +22,6 @@ class Datatext
   }
   /* Выберем рандомное значение */
   private function rd() {
-    $this->appr();
     $this->d['name'] = $this->m[0][rand(0, count($this->m[0])-1)];
     $this->d['surname'] = $this->m[1][rand(0, count($this->m[1])-1)];
   }
@@ -74,6 +73,8 @@ class Datatext
   }
   /* Конструктор для сбора всех данных */
   public function __construct($level) {
+    /* Чтобы только раз считать информацию с файла в массив */
+    $this->appr();
     /* Присвоение свойству даты приема */
     $this->date_receipt();
     /* Присвоение должности и зарплаты */
