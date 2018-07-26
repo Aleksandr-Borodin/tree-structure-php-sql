@@ -48,6 +48,7 @@ class Database
         /* чтобы не было дублей записей в массиве */
         return $sth->fetch(PDO::FETCH_NUM);
     }
+    
     /* Метот чтения всех записей по id его босса */
     public function read_all_boss_id($table, $id_bos) {
         $sql = "SELECT * FROM `" . $table . "` WHERE `bos-id` = :t1";
