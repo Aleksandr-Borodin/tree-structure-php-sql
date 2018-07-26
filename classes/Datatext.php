@@ -9,7 +9,7 @@ class Datatext
   private function rt($a) {
     if ('name' == $a) {
       $p1 = __DIR__ . '\..\modules\name.txt';
-    } else if ('surnmae' == $a) {
+    } else {
       $p1 = __DIR__ . '\..\modules\surname.txt';
     }
     $t = file_get_contents($p1);
