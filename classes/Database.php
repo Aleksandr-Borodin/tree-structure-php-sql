@@ -38,4 +38,28 @@ class Database
         // Метод возвращает номер последней записи;
         return $dbh->lastInsertId();;
     }
+
+    /* Метот чтения одной записи для конкретного сотрудника по его id */
+    public function read_one_id($table, $id) {
+        /* Другой способ формирование строки запроса */
+        $sql = "SELECT * FROM " . $table . " WHERE id='" . $id . "'";
+        $dbh = $this->setting();
+        $sth = $dbh->query($sql);
+        /* чтобы не было дублей записей в массиве */
+        return $sth->fetch(PDO::FETCH_NUM);
+    }
+    /* Метот чтения всех записей по id его босса */
+    public function read_all_boss_id($table, $id_bos) {
+        $sql = "SELECT * FROM `" . $table . "` WHERE `bos-id` = :t1";
+        $dbh = $this->setting();
+        $stm = $dbh->prepare($sql);
+        $stm->bindValue(':t1', $id_bos, PDO::PARAM_INT);
+        $stm->execute();
+        /* Построчное извелчение результирующего набора */
+        $result = [];
+        while($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+        return $result;
+    }
 }
