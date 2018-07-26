@@ -16,6 +16,7 @@ $id_bos = $db->write_db('owner', array($m['position'], $m['name'] . ' ' . $m['su
 $sch = 1;
 echo $sch . "<br>";
 
+/* Через цикл запишем все записи в БД */
 for ($n2 = 1; $n2 <= 10; $n2++) {
     /* Запишем директоров компании - их 10 */
     $dt = new Datatext('directors');
