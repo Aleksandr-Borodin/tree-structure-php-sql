@@ -1,5 +1,5 @@
 <?php
-
+// Простой автозагрузчик классов;
 class Load
 {
     public function loadclass($a)

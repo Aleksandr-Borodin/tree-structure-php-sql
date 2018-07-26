@@ -4,11 +4,12 @@ class Datatext
 {
   private $m = [];  // Массив всех имен и фамилий;
   private $d = [];  // Конечный массив с данными;
-  /* Считаем данные с файлов в массив */
+  
+  /* Считаем данные с файлов в массив, используя высокоуровневые ф-ции */
   private function rt($a) {
     if ('name' == $a) {
       $p1 = __DIR__ . '\..\modules\name.txt';
-    } else {
+    } else if ('surnmae' == $a) {
       $p1 = __DIR__ . '\..\modules\surname.txt';
     }
     $t = file_get_contents($p1);
@@ -52,6 +53,7 @@ class Datatext
   }
   /* Присвоение даты приема */
   private function date_receipt() {
+    /* Чтобы добавить 0 перед числами меньше 10 */
     $month = rand(1, 12);
     If ($month < 10) {
       $month = '0' . $month;
@@ -70,7 +72,7 @@ class Datatext
     $this->d['date'] = rand(1960, 2018) . '-' . $month . '-' . $day;
 
   }
-  /* Финальная функция сбора всех данных */
+  /* Конструктор для сбора всех данных */
   public function __construct($level) {
     /* Присвоение свойству даты приема */
     $this->date_receipt();
@@ -81,6 +83,7 @@ class Datatext
   }
   /* Возвращение массива с данными */
   public function givet() {
+    // Считывание идет закрытого свойства через доступный из вне метод;
     return $this->d;
   }  
 }
