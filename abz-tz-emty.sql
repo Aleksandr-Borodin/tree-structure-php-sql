@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2018 at 12:51 
+-- Generation Time: Jul 26, 2018 at 11:05 
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -59,8 +59,8 @@ CREATE TABLE `directors` (
 CREATE TABLE `employees` (
   `id` int(5) NOT NULL,
   `bos-id` int(4) NOT NULL,
-  `initials` int(30) NOT NULL,
-  `position` int(20) NOT NULL,
+  `initials` char(30) NOT NULL,
+  `position` char(20) NOT NULL,
   `date` date NOT NULL,
   `solary` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
